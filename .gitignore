@@ -1,5 +1,6 @@
 *.gem
 *.rbc
+*.lock
 .bundle
 .config
 coverage
@@ -22,3 +23,4 @@ doc/
 .vagrant
 
 .DS_Store
+.directory
