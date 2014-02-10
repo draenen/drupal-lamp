@@ -1,4 +1,127 @@
 {
+  "drupal": {
+    "drush": {
+      "repository": "https://github.com/drush-ops/drush.git",
+      "revision": "master"
+    },
+    "sites": {
+      "c36ia": {
+        "active": true,
+        "deploy": {
+          "action": "clean",
+          "releases": 1
+        },
+        "drupal": {
+          "version": 7.26,
+          "settings": {
+            "files": "sites/default/files",
+            "settings": {
+              "default": {
+                "location": "sites/default/settings.php"
+              }
+            },
+            "db_file": "c36ia.sql",
+            "db_name": "c36ia",
+            "db_host": "localhost",
+            "db_prefix": "",
+            "db_driver": "mysql"
+          }
+        },
+        "repository": {
+          "host": "bitbucket.org",
+          "uri": "git@bitbucket.org:draenen/catalina-36.git",
+          "revision": "master",
+          "remotes": {
+            "upstream": "git@bitbucket.org:monarchd/catalina-36.git"
+          }
+        },
+        "web_app": {
+          "80": {
+            "server_name": "c36ia.local",
+            "rewrite_engine": "On",
+            "docroot": "/srv/www/c36ia/current"
+          }
+        }
+      },
+      "membershipentity": {
+        "active": true,
+        "deploy": {
+          "action": "nothing",
+          "releases": 1
+        },
+        "drupal": {
+          "version": 7.26,
+          "install": {
+            "install_configure_form.update_status_module": "'array(FALSE,FALSE)'",
+            "--clean-url": 1
+          },
+          "settings": {
+            "profile": "standard",
+            "files": "sites/default/files",
+            "settings": {
+              "default": {
+                "location": "sites/default/settings.php"
+              }
+            },
+            "db_name": "membershipentity",
+            "db_host": "localhost",
+            "db_prefix": "",
+            "db_driver": "mysql"
+          }
+        },
+        "repository": {
+          "host": "drupal.org",
+          "uri": "http://git.drupal.org/project/drupal.git",
+          "revision": "7.x"
+        },
+        "web_app": {
+          "80": {
+            "server_name": "membershipentity.local",
+            "rewrite_engine": "On",
+            "docroot": "/srv/www/membershipentity/current"
+          }
+        }
+      },
+      "pca": {
+        "active": true,
+        "deploy": {
+          "action": "nothing",
+          "releases": 1
+        },
+        "drupal": {
+          "version": 7.26,
+          "settings": {
+            "files": "sites/default/files",
+            "settings": {
+              "default": {
+                "location": "sites/default/settings.php"
+              }
+            },
+            "db_file": "pca.sql",
+            "db_name": "pca",
+            "db_host": "localhost",
+            "db_prefix": "",
+            "db_driver": "mysql"
+          }
+        },
+        "repository": {
+          "host": "bitbucket.org",
+          "uri": "git@bitbucket.org:draenen/pca.git",
+          "revision": "master",
+          "remotes": {
+            "upstream": "git@bitbucket.org:monarchd/pca.git"
+          }
+        },
+        "web_app": {
+          "80": {
+            "server_name": "pca.local",
+            "rewrite_engine": "On",
+            "docroot": "/srv/www/pca/current"
+          }
+        }
+      }
+    }
+  },
   "build_essential": {
     "compiletime": true
   },
@@ -54,61 +177,6 @@
       "innodb_buffer_pool_size": "128M",
       "innodb_flush_method": "O_DIRECT",
       "sync_binlog": "0"
-    }
-  },
-  "drupal": {
-    "drush": {
-      "repository": "https://github.com/drush-ops/drush.git",
-      "revision": "master"
-    },
-    "sites": {
-      "pca": {
-        "active": true,
-        "deploy": {
-          "action": "import",
-          "releases": 1
-        },
-        "css_preprocessor": {
-          "location": "sites/all/themes/pca",
-          "gems": [
-            "bundler"
-          ],
-          "commands": [
-            "bundle install",
-            "bundle update",
-            "bundle exec compass compile"
-          ]
-        },
-        "drupal": {
-          "version": 7.26,
-          "settings": {
-            "files": "sites/default/files",
-            "settings": "sites/default/settings.php",
-            "cookbook": "drupal",
-            "template": "d7.settings.php.erb",
-            "db_file": "pca.sql",
-            "db_name": "pca",
-            "db_host": "localhost",
-            "db_prefix": "",
-            "db_driver": "mysql"
-          }
-        },
-        "repository": {
-          "host": "bitbucket.org",
-          "uri": "git@bitbucket.org:draenen/pca.git",
-          "revision": "master",
-          "remotes": {
-            "upstream": "git@bitbucket.org:monarchd/pca.git"
-          }
-        },
-        "web_app": {
-          "80": {
-            "server_name": "pca.local",
-            "rewrite_engine": "On",
-            "docroot": "/srv/www/pca/current"
-          }
-        }
-      }
     }
   }
 }
