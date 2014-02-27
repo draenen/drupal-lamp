@@ -1,9 +1,5 @@
 {
   "drupal": {
-    "drush": {
-      "repository": "https://github.com/drush-ops/drush.git",
-      "revision": "7.x-5.9"
-    },
     "sites": {
       "c36ia": {
         "active": true,
@@ -123,7 +119,7 @@
       "tailormadewhiteboards": {
         "active": true,
         "deploy": {
-          "action": "nothing",
+          "action": "clean",
           "releases": 1
         },
         "drupal": {
@@ -158,30 +154,33 @@
           }
         }
       }
-    }
+    },
+    "drush": {
+      "repository": "https://github.com/drush-ops/drush.git",
+      "revision": "7.x-5.9"
+    },
+    "server": {
+      "web_user": "www-data",
+      "web_group": "www-data",
+      "assets": "/assets",
+      "base": "/srv/www"
+    },
   },
   "build_essential": {
     "compiletime": true
   },
   "db": {
-      "driver": "mysql",
-      "client_recipe": "mysql::client",
+    "driver": "mysql",
+    "client_recipe": "mysql::client",
+    "root": "root",
+    "grant_hosts": [
+      "localhost"
+    ],
+    "users": {
       "root": "root",
-      "grant_hosts": [
-        "localhost"
-      ],
-      "users": {
-        "root": "root",
-        "replication": "replication",
-        "debian": "debian"
-      }
-  },
-  "server": {
-      "web_user": "www-data",
-      "web_group": "www-data",
-      "assets": "/assets",
-      "theme_default": "mytheme",
-      "base": "/srv/www"
+      "replication": "replication",
+      "debian": "debian"
+    }
   },
   "php": {
     "directives": {
