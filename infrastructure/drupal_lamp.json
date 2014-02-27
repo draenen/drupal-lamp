@@ -2,7 +2,7 @@
   "drupal": {
     "drush": {
       "repository": "https://github.com/drush-ops/drush.git",
-      "revision": "master"
+      "revision": "7.x-5.9"
     },
     "sites": {
       "c36ia": {
@@ -119,6 +119,44 @@
             "docroot": "/srv/www/pca/current"
           }
         }
+      },
+      "tailormadewhiteboards": {
+        "active": true,
+        "deploy": {
+          "action": "nothing",
+          "releases": 1
+        },
+        "drupal": {
+          "version": 7.26,
+          "settings": {
+            "files": "sites/default/files",
+            "settings": {
+              "default": {
+                "location": "sites/default/settings.php"
+              }
+            },
+            "db_file": "tailormadewhiteboards.sql",
+            "db_name": "tailormadewhiteboards",
+            "db_host": "localhost",
+            "db_prefix": "",
+            "db_driver": "mysql"
+          }
+        },
+        "repository": {
+          "host": "bitbucket.org",
+          "uri": "git@bitbucket.org:draenen/tmw.git",
+          "revision": "master",
+          "remotes": {
+            "upstream": "git@bitbucket.org:monarchd/tmw.git"
+          }
+        },
+        "web_app": {
+          "80": {
+            "server_name": "tailormadewhiteboards.local",
+            "rewrite_engine": "On",
+            "docroot": "/srv/www/tailormadewhiteboards/current"
+          }
+        }
       }
     }
   },
@@ -141,7 +179,7 @@
   "server": {
       "web_user": "www-data",
       "web_group": "www-data",
-      "assets": "/srv/assets",
+      "assets": "/assets",
       "theme_default": "mytheme",
       "base": "/srv/www"
   },
