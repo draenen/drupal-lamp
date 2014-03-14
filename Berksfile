@@ -9,4 +9,4 @@ cookbook 'openssl', '~> 1.1.0'
 cookbook 'php', '~> 1.2.6'
 cookbook 'ssh_known_hosts', '~> 1.1.0'
 cookbook 'sudo', '~> 2.2.2'
-cookbook "drupal", path: "/home/caleb/workspace/chef/chookboocks/drupal"
+cookbook "drupal", path: "/home/caleb/workspace/chef/cookbooks/drupal"
