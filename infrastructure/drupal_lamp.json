@@ -61,7 +61,7 @@
       "revision": "7.x-5.9"
     },
     "sites": {
-      "c36ia": {
+      "sunnysideupbrass": {
         "active": true,
         "deploy": {
           "action": [],
@@ -82,8 +82,8 @@
                 "template": "d7.dev.settings.php.erb"
               }
             },
-            "db_file": "c36ia.sql",
-            "db_name": "c36ia",
+            "db_file": "sunnysideupbrass.sql",
+            "db_name": "sunnysideupbrass",
             "db_host": "localhost",
             "db_prefix": "",
             "db_driver": "mysql"
@@ -91,186 +91,14 @@
         },
         "repository": {
           "host": "bitbucket.org",
-          "uri": "git@bitbucket.org:draenen/catalina-36.git",
-          "revision": "master",
-          "remotes": {
-            "upstream": "git@bitbucket.org:monarchd/catalina-36.git"
-          }
+          "uri": "git@bitbucket.org:draenen/ssub.git",
+          "revision": "d7"
         },
         "web_app": {
           "80": {
-            "server_name": "c36ia.local",
+            "server_name": "sunnysideupbrass.local",
             "rewrite_engine": "On",
-            "docroot": "/srv/www/c36ia/current"
-          }
-        }
-      },
-      "coloradoc1": {
-        "active": false,
-        "deploy": {
-          "action": [],
-          "releases": 1
-        },
-        "drupal": {
-          "version": "6.28",
-          "install": {},
-          "settings": {
-            "files": "docroot/sites/default/files",
-            "cookbook": "drupal",
-            "settings": {
-              "default": {
-                "location": "docroot/sites/default/settings.php"
-              }
-            },
-            "db_file": "coloradoc1.sql",
-            "db_name": "coloradoc1",
-            "db_host": "localhost",
-            "db_prefix": "",
-            "db_driver": "mysql"
-          }
-        },
-        "repository": {
-          "host": "acquia.com",
-          "uri": "coloradoc1@svn-3224.prod.hosting.acquia.com:coloradoc1.git",
-          "revision": "master"
-        },
-        "web_app": {
-          "80": {
-            "server_name": "coloradoc1.local",
-            "rewrite_engine": "On",
-            "docroot": "/srv/www/coloradoc1/current/docroot"
-          }
-        }
-      },
-      "membershipentity": {
-        "active": true,
-        "deploy": {
-          "action": [],
-          "releases": 1
-        },
-        "drupal": {
-          "version": "7.26",
-          "install": {
-            "install_configure_form.update_status_module": "'array(FALSE,FALSE)'",
-            "--clean-url": 1
-          },
-          "settings": {
-            "profile": "standard",
-            "files": "sites/default/files",
-            "cookbook": "drupal",
-            "settings": {
-              "default": {
-                "location": "sites/default/settings.php"
-              },
-              "dev": {
-                "location": "sites/default/settings.dev.php",
-                "template": "d7.dev.settings.php.erb"
-              }
-            },
-            "db_name": "membershipentity",
-            "db_host": "localhost",
-            "db_prefix": "",
-            "db_driver": "mysql"
-          }
-        },
-        "repository": {
-          "host": "drupal.org",
-          "uri": "http://git.drupal.org/project/drupal.git",
-          "revision": "7.x"
-        },
-        "web_app": {
-          "80": {
-            "server_name": "membershipentity.local",
-            "rewrite_engine": "On",
-            "docroot": "/srv/www/membershipentity/current"
-          }
-        }
-      },
-      "pca": {
-        "active": true,
-        "deploy": {
-          "action": [],
-          "releases": 1
-        },
-        "drupal": {
-          "version": "7.26",
-          "install": {},
-          "settings": {
-            "files": "sites/default/files",
-            "cookbook": "drupal",
-            "settings": {
-              "default": {
-                "location": "sites/default/settings.php"
-              },
-              "dev": {
-                "location": "sites/default/settings.dev.php",
-                "template": "d7.dev.settings.php.erb"
-              }
-            },
-            "db_file": "pca.sql",
-            "db_name": "pca",
-            "db_host": "localhost",
-            "db_prefix": "",
-            "db_driver": "mysql"
-          }
-        },
-        "repository": {
-          "host": "bitbucket.org",
-          "uri": "git@bitbucket.org:draenen/pca.git",
-          "revision": "master",
-          "remotes": {
-            "upstream": "git@bitbucket.org:monarchd/pca.git"
-          }
-        },
-        "web_app": {
-          "80": {
-            "server_name": "pca.local",
-            "rewrite_engine": "On",
-            "docroot": "/srv/www/pca/current"
-          }
-        }
-      },
-      "tailormadewhiteboards": {
-        "active": false,
-        "deploy": {
-          "action": [],
-          "releases": 1
-        },
-        "drupal": {
-          "version": "7.26",
-          "install": {},
-          "settings": {
-            "files": "sites/default/files",
-            "cookbook": "drupal",
-            "settings": {
-              "default": {
-                "location": "sites/default/settings.php"
-              },
-              "dev": {
-                "location": "sites/default/settings.dev.php",
-                "template": "d7.dev.settings.php.erb"
-              }
-            },
-            "db_file": "tailormadewhiteboards.sql",
-            "db_name": "tailormadewhiteboards",
-            "db_host": "localhost",
-            "db_prefix": "",
-            "db_driver": "mysql"
-          }
-        },
-        "repository": {
-          "host": "bitbucket.org",
-          "uri": "git@bitbucket.org:draenen/tmw.git",
-          "revision": "master",
-          "remotes": {
-            "upstream": "git@bitbucket.org:monarchd/tmw.git"
-          }
-        },
-        "web_app": {
-          "80": {
-            "server_name": "tailormadewhiteboards.local",
-            "rewrite_engine": "On",
-            "docroot": "/srv/www/tailormadewhiteboards/current"
+            "docroot": "/srv/www/sunnysideupbrass/current"
           }
         }
       }
