@@ -64,16 +64,22 @@
       "c36ia": {
         "active": true,
         "deploy": {
-          "action": "nothing",
+          "action": [],
           "releases": 1
         },
         "drupal": {
-          "version": 7.26,
+          "version": "7.26",
+          "install": {},
           "settings": {
             "files": "sites/default/files",
+            "cookbook": "drupal",
             "settings": {
               "default": {
                 "location": "sites/default/settings.php"
+              },
+              "dev": {
+                "location": "sites/default/settings.dev.php",
+                "template": "d7.dev.settings.php.erb"
               }
             },
             "db_file": "c36ia.sql",
@@ -100,15 +106,17 @@
         }
       },
       "coloradoc1": {
-        "active": true,
+        "active": false,
         "deploy": {
-          "action": "nothing",
+          "action": [],
           "releases": 1
         },
         "drupal": {
-          "version": 6.28,
+          "version": "6.28",
+          "install": {},
           "settings": {
             "files": "docroot/sites/default/files",
+            "cookbook": "drupal",
             "settings": {
               "default": {
                 "location": "docroot/sites/default/settings.php"
@@ -137,11 +145,11 @@
       "membershipentity": {
         "active": true,
         "deploy": {
-          "action": "nothing",
+          "action": [],
           "releases": 1
         },
         "drupal": {
-          "version": 7.26,
+          "version": "7.26",
           "install": {
             "install_configure_form.update_status_module": "'array(FALSE,FALSE)'",
             "--clean-url": 1
@@ -149,9 +157,14 @@
           "settings": {
             "profile": "standard",
             "files": "sites/default/files",
+            "cookbook": "drupal",
             "settings": {
               "default": {
                 "location": "sites/default/settings.php"
+              },
+              "dev": {
+                "location": "sites/default/settings.dev.php",
+                "template": "d7.dev.settings.php.erb"
               }
             },
             "db_name": "membershipentity",
@@ -176,16 +189,22 @@
       "pca": {
         "active": true,
         "deploy": {
-          "action": "nothing",
+          "action": [],
           "releases": 1
         },
         "drupal": {
-          "version": 7.26,
+          "version": "7.26",
+          "install": {},
           "settings": {
             "files": "sites/default/files",
+            "cookbook": "drupal",
             "settings": {
               "default": {
                 "location": "sites/default/settings.php"
+              },
+              "dev": {
+                "location": "sites/default/settings.dev.php",
+                "template": "d7.dev.settings.php.erb"
               }
             },
             "db_file": "pca.sql",
@@ -214,16 +233,22 @@
       "tailormadewhiteboards": {
         "active": false,
         "deploy": {
-          "action": "nothing",
+          "action": [],
           "releases": 1
         },
         "drupal": {
-          "version": 7.26,
+          "version": "7.26",
+          "install": {},
           "settings": {
             "files": "sites/default/files",
+            "cookbook": "drupal",
             "settings": {
               "default": {
                 "location": "sites/default/settings.php"
+              },
+              "dev": {
+                "location": "sites/default/settings.dev.php",
+                "template": "d7.dev.settings.php.erb"
               }
             },
             "db_file": "tailormadewhiteboards.sql",

@@ -22,18 +22,21 @@ cd vagrant
 git clone git@github.com:newmediadenver/drupal-lamp.git
 cd drupal-lamp
 mkdir assets
-vagrant install plugin vagrant-berkshelf
+vagrant plugin install vagrant-berkshelf
 ```
 *Note:* If you are on Mavericks, you will need to run: ```sudo /Library/StartupItems/VirtualBox/VirtualBox restart``` to get up and running.
 
 Now, you will have all the proper folders and files in place to run drupal lamp
 as an example site. However, what fun is that?!
 
-To customize drupal-lamp to use you specific site, you will need to edit the file
+To customize drupal-lamp to use your specific site, you will need to edit the file
 located at ```infrastructure/drupal_lamp.json```. See Below for the details on configuration
 of sites.
 
 Once you have updated the json, you will run the command:
+
+NOTE: Make sure that you have a data-bag associated with the site(s). See below for info
+about data-bags.
 
 ```
 vagrant up
@@ -54,19 +57,33 @@ see that cookbooks repo. ** If you are curious where a cookbook comes from, look
 berksfile **
 
 ### Drupal
-see [Drupal chef cookbook](http://github.com/newmediadenver/drupal)
+See [Drupal chef cookbook](http://github.com/newmediadenver/drupal)
+
+#### Data Bags (Hash or Mash)
+If you make a new or edit the existing site id in the drupal_lamp.json, you will
+need to create a databag for that site with the same id as the site name. Steps to do so:
+
+1. ```cp chef/data_bags/sites/example.json chef/data_bags/sites/[site_name].json```
+1. Now edit the [site_name].json and change id of the site id.
+1. Edit the info for your site.
 
 ### Create a file share
 
-#### Vagrant nfs
+#### Drupal-NFS (Set up a NFS share on the VM, mount it on your local machine)
+This is the speediest option and is compatible with any system that can mount
+NFS shares.
+
+see [Drupal-NFS cookbook](https://github.com/arknoll/drupal-nfs)
+
+#### Vagrant-provided nfs (Vagrant sets up a NFS share on your local machine, then mounts it on the VM.)
 see [NFS in Vagrant Docs](https://docs.vagrantup.com/v2/synced-folders/nfs.html)
 
 1. Get required prerequisits (see Vagrant Doc)
 2. Add code/uncomment in Vagrantfile
 ````
 # for Vagrant nfs support
-config.nfs.map_uid = :auto
-config.nfs.map_gid = :auto
+config.nfs.map_uid = 0
+config.nfs.map_gid = 0
 
 ...
 # for Vagrant nfs support
@@ -76,7 +93,7 @@ server.vm.synced_folder "assets", "/assets", :nfs => true
 ````
 Vagrant reload
 
-#### Vagrant synced folders (slower)
+#### Vagrant synced folders (slower - Vagrant sets up a virtualbox share on your local machine, then mounts it on the VM.)
 see [Synced folders in Vagrant Docs](https://docs.vagrantup.com/v2/synced-folders/basic_usage.html)
 Add code/uncomment in Vagrantfile
 ````
@@ -94,6 +111,10 @@ Known "plug-ins" for drupal-lamp
 2. Add the role to the chef/roles/drupal_lamp.rb
 3. Modify any attributes in your drupal_lamp.json if necessary
 
+### Drupal-NFS
+Allows you to expose and configure NFS shares on the VM.
+see [Drupal-NFS cookbook](https://github.com/arknoll/drupal-nfs)
+
 ### Drupal-solr
 Installs Apache Solr on your virtual machine.
 see [Drupal solr cookbook](http://github.com/arknoll/drupal)
@@ -101,6 +122,13 @@ see [Drupal solr cookbook](http://github.com/arknoll/drupal)
 ### Drupal-codeception
 Installs [Codeception](http://codeception.com/) testing framework on your virtual machine.
 see [Drupal codeception cookbook](http://github.com/arknoll/drupal-codeception)
+
+### Drupal-frontend
+Adds CSS Preprocessing on spin up. More coolness to come.
+See [Drupal Frontend](http://github.com/timodwhit/drupal-frontend)
+
+### Create a self-signed ssl certificate
+See wiki [SSL in a dev environment](https://github.com/newmediadenver/drupal-lamp/wiki/SSL-in-a-dev-environment)
 
 
 Contributing
