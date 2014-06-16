@@ -68,7 +68,7 @@
           "releases": 1
         },
         "drupal": {
-          "version": "7.26",
+          "version": "7.27",
           "install": {},
           "settings": {
             "files": "sites/default/files",
@@ -82,7 +82,7 @@
                 "template": "d7.dev.settings.php.erb"
               }
             },
-            "db_file": "c36ia.sql",
+            "db_file": "/assets/c36ia/c36ia.sql",
             "db_name": "c36ia",
             "db_host": "localhost",
             "db_prefix": "",
@@ -186,6 +186,50 @@
           }
         }
       },
+      "monarchdigital": {
+        "active": true,
+        "deploy": {
+          "action": [],
+          "releases": 1
+        },
+        "drupal": {
+          "version": "7.26",
+          "install": {},
+          "settings": {
+            "files": "sites/default/files",
+            "cookbook": "drupal",
+            "settings": {
+              "default": {
+                "location": "sites/default/settings.php"
+              },
+              "dev": {
+                "location": "sites/default/settings.dev.php",
+                "template": "d7.dev.settings.php.erb"
+              }
+            },
+            "db_file": "/assets/monarchdigital/monarchdigital.sql",
+            "db_name": "monarchdigital",
+            "db_host": "localhost",
+            "db_prefix": "",
+            "db_driver": "mysql"
+          }
+        },
+        "repository": {
+          "host": "bitbucket.org",
+          "uri": "git@bitbucket.org:draenen/monarchdigital.git",
+          "revision": "master",
+          "remotes": {
+            "upstream": "git@bitbucket.org:monarchd/monarchdigital.git"
+          }
+        },
+        "web_app": {
+          "80": {
+            "server_name": "monarchdigital.local",
+            "rewrite_engine": "On",
+            "docroot": "/srv/www/monarchdigital/current"
+          }
+        }
+      },
       "pca": {
         "active": true,
         "deploy": {
@@ -207,7 +251,7 @@
                 "template": "d7.dev.settings.php.erb"
               }
             },
-            "db_file": "pca.sql",
+            "db_file": "/assets/pca/pca.sql",
             "db_name": "pca",
             "db_host": "localhost",
             "db_prefix": "",
@@ -231,7 +275,7 @@
         }
       },
       "tailormadewhiteboards": {
-        "active": false,
+        "active": true,
         "deploy": {
           "action": [],
           "releases": 1
@@ -251,7 +295,7 @@
                 "template": "d7.dev.settings.php.erb"
               }
             },
-            "db_file": "tailormadewhiteboards.sql",
+            "db_file": "/assets/tailormadewhiteboards/tailormadewhiteboards.sql",
             "db_name": "tailormadewhiteboards",
             "db_host": "localhost",
             "db_prefix": "",
@@ -271,6 +315,50 @@
             "server_name": "tailormadewhiteboards.local",
             "rewrite_engine": "On",
             "docroot": "/srv/www/tailormadewhiteboards/current"
+          }
+        }
+      },
+      "wolfgangpuck": {
+        "active": false,
+        "deploy": {
+          "action": [],
+          "releases": 1
+        },
+        "drupal": {
+          "version": "7.26",
+          "install": {},
+          "settings": {
+            "files": "www/sites/default/files",
+            "cookbook": "drupal",
+            "settings": {
+              "default": {
+                "location": "www/sites/default/settings.php"
+              },
+              "dev": {
+                "location": "www/sites/default/settings.dev.php",
+                "template": "d7.dev.settings.php.erb"
+              }
+            },
+            "db_file": "/assets/wolfgangpuck/wolfgangpuck.sql",
+            "db_name": "wolfgangpuck",
+            "db_host": "localhost",
+            "db_prefix": "",
+            "db_driver": "mysql"
+          }
+        },
+        "repository": {
+          "host": "github.com",
+          "uri": "git@github.com:draenen/wolfgangpuck.git",
+          "revision": "master",
+          "remotes": {
+            "upstream": "git@github.com:sitelabdev/wolfgangpuck.git"
+          }
+        },
+        "web_app": {
+          "80": {
+            "server_name": "wolfgangpuck.local",
+            "rewrite_engine": "On",
+            "docroot": "/srv/www/wolfgangpuck/current/www"
           }
         }
       }
