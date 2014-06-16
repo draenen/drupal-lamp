@@ -1,3 +1,5 @@
+source "https://api.berkshelf.com"
+
 cookbook 'apt', '~> 2.3.0'
 cookbook 'apache2', '~> 1.8.14'
 cookbook 'build-essential', '~> 1.4.2'
@@ -9,4 +11,4 @@ cookbook 'openssl', '~> 1.1.0'
 cookbook 'php', '~> 1.2.6'
 cookbook 'ssh_known_hosts', '~> 1.1.0'
 cookbook 'sudo', '~> 2.2.2'
-cookbook "drupal", path: "/home/caleb/workspace/chef/cookbooks/drupal"
+cookbook 'drupal', path: '/home/caleb/workspace/chef/cookbooks/drupal'

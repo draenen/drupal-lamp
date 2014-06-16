@@ -1,65 +1,5 @@
 {
-  "build_essential": {
-    "compiletime": true
-  },
-  "db": {
-    "driver": "mysql",
-    "client_recipe": "mysql::client",
-    "root": "root",
-    "grant_hosts": [
-      "localhost"
-    ],
-    "users": {
-      "root": "root",
-      "replication": "replication",
-      "debian": "debian"
-    }
-  },
-  "php": {
-    "directives": {
-      "max_execution_time": "300",
-      "max_input_time": "300",
-      "memory_limit": "1024M",
-      "error_reporting": "E_ALL | E_STRICT",
-      "display_errors": "On",
-      "display_startup_errors": "On",
-      "html_errors": "On",
-      "post_max_size": "210M",
-      "file_uploads": "On",
-      "upload_max_filesize": "200M",
-      "date.timezone": "America/Denver",
-      "apc.enable_cli": "1",
-      "apc.shm_size": "64M"
-    },
-    "conf_dir" : "/etc/php5/apache2"
-  },
-  "mysql": {
-    "tunable": {
-      "max_allowed_packet": "16M",
-      "key_buffer_size": "32M",
-      "max_connect_errors": "1000",
-      "tmp_table_size": "32M",
-      "max_connections": "500",
-      "thread_cache_size": "50",
-      "table_open_cache": "512",
-      "innodb_flush_log_at_trx_commit": "0",
-      "innodb_file_per_table": "1",
-      "innodb_buffer_pool_size": "128M",
-      "innodb_flush_method": "O_DIRECT",
-      "sync_binlog": "0"
-    }
-  },
   "drupal": {
-    "server": {
-      "web_user": "www-data",
-      "web_group": "www-data",
-      "assets": "/assets",
-      "base": "/srv/www"
-    },
-    "drush": {
-      "repository": "https://github.com/drush-ops/drush.git",
-      "revision": "7.x-5.9"
-    },
     "sites": {
       "c36ia": {
         "active": true,
@@ -362,6 +302,23 @@
           }
         }
       }
+    }
+  },
+  "php": {
+    "directives": {
+      "max_execution_time": "300",
+      "max_input_time": "300",
+      "memory_limit": "1024M",
+      "error_reporting": "E_ALL | E_STRICT",
+      "display_errors": "On",
+      "display_startup_errors": "On",
+      "html_errors": "On",
+      "post_max_size": "210M",
+      "file_uploads": "On",
+      "upload_max_filesize": "200M",
+      "date.timezone": "America/Denver",
+      "apc.enable_cli": "1",
+      "apc.shm_size": "64M"
     }
   }
 }
